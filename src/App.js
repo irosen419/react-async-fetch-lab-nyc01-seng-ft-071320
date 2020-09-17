@@ -1,4 +1,5 @@
 import React from 'react'
+import SpacePerson from './SpacePerson'
 
 class App extends React.Component {
 
@@ -6,8 +7,17 @@ class App extends React.Component {
         content: []
     }
 
+    spacefolk = () => {
+        if (this.state.content.people) {
+            return this.state.content.people.map(person => <SpacePerson personObj={person} />)
+        }
+    }
+
     render() {
-        return <h1>{this.state.conent}</h1>
+        return (
+            <div>
+                {this.spacefolk()}
+            </div>)
     }
 
     componentDidMount() {
